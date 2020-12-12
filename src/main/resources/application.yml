@@ -1,0 +1,23 @@
+spring:
+  profiles: prod
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/${dbName}
+    username: ${dbUser}
+    password: ${dbPass}
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+
+---
+
+spring:
+  profiles: dev
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:${dbName}
+    username: ${dbUser}
+    password: ${dbPass}
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
